@@ -7,7 +7,10 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
-    "server": "node server.js"
+    "server": "node server.js",
+    "compare:public": "node scripts/public-html-price-compare.cjs",
+    "taobao:login": "node scripts/taobao-session-setup.cjs",
+    "pdd:login": "node scripts/pdd-session-setup.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -39,6 +42,7 @@
     "@radix-ui/react-toggle-group": "1.1.1",
     "@radix-ui/react-tooltip": "1.1.6",
     "autoprefixer": "^10.4.20",
+    "cheerio": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
@@ -50,6 +54,8 @@
     "lucide-react": "^0.454.0",
     "next": "15.2.4",
     "next-themes": "^0.4.4",
+    "openai": "^6.33.0",
+    "playwright-core": "^1.52.0",
     "react": "^19",
     "react-day-picker": "8.10.1",
     "react-dom": "^19",

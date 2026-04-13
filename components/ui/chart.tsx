@@ -52,7 +52,7 @@ const ChartContainer = React.forwardRef<
         data-chart={chartId}
         ref={ref}
         className={cn(
-          "flex aspect-video justify-center text-xs [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
+          "flex aspect-video justify-center overflow-hidden rounded-[1.5rem] border border-slate-200/80 bg-gradient-to-b from-white via-white to-slate-50/80 p-3 text-xs shadow-[0_18px_44px_rgba(15,23,42,0.08)] dark:border-slate-800/90 dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-950 dark:to-slate-900/85 dark:shadow-[0_22px_52px_rgba(2,6,23,0.24)] [&_.recharts-cartesian-axis-tick_text]:fill-muted-foreground [&_.recharts-cartesian-grid_line[stroke='#ccc']]:stroke-border/50 [&_.recharts-curve.recharts-tooltip-cursor]:stroke-border/70 [&_.recharts-dot[stroke='#fff']]:stroke-transparent [&_.recharts-layer]:outline-none [&_.recharts-polar-grid_[stroke='#ccc']]:stroke-border [&_.recharts-radial-bar-background-sector]:fill-muted [&_.recharts-rectangle.recharts-tooltip-cursor]:fill-muted/45 [&_.recharts-reference-line_[stroke='#ccc']]:stroke-border [&_.recharts-sector[stroke='#fff']]:stroke-transparent [&_.recharts-sector]:outline-none [&_.recharts-surface]:outline-none",
           className
         )}
         {...props}
@@ -179,7 +179,7 @@ const ChartTooltipContent = React.forwardRef<
       <div
         ref={ref}
         className={cn(
-          "grid min-w-[8rem] items-start gap-1.5 rounded-lg border border-border/50 bg-background px-2.5 py-1.5 text-xs shadow-xl",
+          "grid min-w-[10rem] items-start gap-1.5 rounded-2xl border border-slate-200/80 bg-white/95 px-3 py-2 text-xs shadow-[0_18px_36px_rgba(15,23,42,0.14)] backdrop-blur-sm dark:border-slate-700/80 dark:bg-slate-950/95",
           className
         )}
       >

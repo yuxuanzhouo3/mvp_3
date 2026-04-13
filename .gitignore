@@ -1,1 +1,14 @@
-node_modules
+node_modules/
+.env.local
+.next/
+.codex*
+.codex-logs/
+.pdd-live-profile*/
+.taobao-*profile*/
+_edge_cdp_minimal/
+_edge_cdp_profile/
+_tmp_*
+_codex_*
+*.log
+.DS_Store
+tsconfig.tsbuildinfo
