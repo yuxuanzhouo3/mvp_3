@@ -5,6 +5,7 @@ const { chromium } = require("playwright-core")
 const {
   DEFAULT_USER_AGENT,
   DEFAULT_VIEWPORT,
+  getBrowserLaunchArgs,
   resolveBrowserExecutablePath,
   resolveTaobaoUserDataDirCandidates,
 } = require("./taobao-browser-utils.cjs")
@@ -46,12 +47,7 @@ async function launchTaobaoSetupContext(executablePath) {
         extraHTTPHeaders: {
           "accept-language": "zh-CN,zh;q=0.9,en;q=0.8",
         },
-        args: [
-          "--disable-blink-features=AutomationControlled",
-          "--disable-features=Translate,AcceptCHFrame",
-          "--no-first-run",
-          "--no-default-browser-check",
-        ],
+        args: getBrowserLaunchArgs(),
       })
 
       return {

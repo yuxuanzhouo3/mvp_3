@@ -3,6 +3,7 @@ const path = require("path")
 const {
   DEFAULT_USER_AGENT,
   DEFAULT_VIEWPORT,
+  getBrowserLaunchArgs,
   readBooleanEnv,
   resolveBrowserExecutablePath,
 } = require("./taobao-browser-utils.cjs")
@@ -25,6 +26,7 @@ function resolvePddUserDataDir() {
 module.exports = {
   DEFAULT_USER_AGENT,
   DEFAULT_VIEWPORT,
+  getBrowserLaunchArgs,
   readBooleanEnv,
   resolveBrowserExecutablePath,
   resolvePddUserDataDir,

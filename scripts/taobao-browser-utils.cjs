@@ -13,6 +13,10 @@ function resolveBrowserExecutablePath() {
   const candidates = [
     process.env.TAOBAO_BROWSER_PATH,
     process.env.JD_BROWSER_PATH,
+    "/usr/bin/chromium-browser",
+    "/usr/bin/chromium",
+    "/usr/bin/google-chrome",
+    "/usr/bin/google-chrome-stable",
     "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
     "C:/Program Files/Microsoft/Edge/Application/msedge.exe",
     "C:/Program Files/Google/Chrome/Application/chrome.exe",
@@ -55,9 +59,25 @@ function readBooleanEnv(name, fallback) {
   return fallback
 }
 
+function getBrowserLaunchArgs() {
+  const args = [
+    "--disable-blink-features=AutomationControlled",
+    "--disable-features=Translate,AcceptCHFrame",
+    "--no-first-run",
+    "--no-default-browser-check",
+  ]
+
+  if (process.platform === "linux") {
+    args.push("--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage")
+  }
+
+  return args
+}
+
 module.exports = {
   DEFAULT_USER_AGENT,
   DEFAULT_VIEWPORT,
+  getBrowserLaunchArgs,
   readBooleanEnv,
   resolveBrowserExecutablePath,
   resolveTaobaoUserDataDirCandidates,

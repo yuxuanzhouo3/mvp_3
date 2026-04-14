@@ -80,6 +80,10 @@ function randomDigits(length) {
 function resolveBrowserExecutablePath() {
   const candidates = [
     process.env.JD_BROWSER_PATH,
+    "/usr/bin/chromium-browser",
+    "/usr/bin/chromium",
+    "/usr/bin/google-chrome",
+    "/usr/bin/google-chrome-stable",
     "C:/Program Files/Google/Chrome/Application/chrome.exe",
     "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe",
     "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe",
@@ -87,6 +91,14 @@ function resolveBrowserExecutablePath() {
   ].filter(Boolean)
 
   return candidates.find((candidate) => fs.existsSync(candidate)) || null
+}
+
+function getBrowserLaunchArgs() {
+  if (process.platform !== "linux") {
+    return []
+  }
+
+  return ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"]
 }
 
 async function fetchText(url, extraHeaders) {
@@ -191,6 +203,7 @@ async function fetchJdPrices(skus, query) {
   const browser = await chromium.launch({
     executablePath,
     headless: true,
+    args: getBrowserLaunchArgs(),
   })
 
   try {

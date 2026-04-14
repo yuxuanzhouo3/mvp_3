@@ -3,6 +3,7 @@ const { chromium } = require("playwright-core")
 const {
   DEFAULT_USER_AGENT,
   DEFAULT_VIEWPORT,
+  getBrowserLaunchArgs,
   readBooleanEnv,
   resolveBrowserExecutablePath,
 } = require("./taobao-browser-utils.cjs")
@@ -51,6 +52,7 @@ async function main() {
   const browser = await chromium.launch({
     executablePath,
     headless: readBooleanEnv("AI_COMPARE_HEADLESS", true),
+    args: getBrowserLaunchArgs(),
   })
 
   let context = null
