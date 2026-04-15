@@ -17,7 +17,7 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV HOSTNAME=0.0.0.0
-ENV PORT=3000
+ENV PORT=80
 
 RUN apk add --no-cache chromium
 
@@ -34,6 +34,6 @@ COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/styles ./styles
 COPY --from=builder /app/next.config.mjs ./next.config.mjs
 
-EXPOSE 3000
+EXPOSE 80
 
-CMD ["npm", "run", "start"]
+CMD ["sh", "-c", "npm run start -- --hostname 0.0.0.0 --port ${PORT:-80}"]
