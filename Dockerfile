@@ -36,4 +36,4 @@ COPY --from=builder /app/next.config.mjs ./next.config.mjs
 
 EXPOSE 80
 
-CMD ["sh", "-c", "npm run start -- --hostname 0.0.0.0 --port ${PORT:-80}"]
+CMD ["npm", "run", "start"]

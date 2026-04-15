@@ -6,7 +6,7 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start",
+    "start": "node scripts/start-next.cjs",
     "server": "node server.js",
     "compare:public": "node scripts/public-html-price-compare.cjs",
     "taobao:login": "node scripts/taobao-session-setup.cjs",
